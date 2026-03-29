@@ -13,5 +13,6 @@ namespace Chem
     /// </summary>
     public partial class App : Application
     {
+        public static Entities.ChemDBEntities Context { get; } = new Entities.ChemDBEntities();
     }
 }
