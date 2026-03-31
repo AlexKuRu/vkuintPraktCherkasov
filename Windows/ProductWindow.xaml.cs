@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chem.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,8 +23,25 @@ namespace Chem.Windows
         public ProductWindow()
         {
             InitializeComponent();
+            var product = App.Context.Product;
+            LoadProducts();        
         }
+        private void LoadProducts()
+        {
+            // Базовый запрос с Include для связанных данных
+            var query = App.Context.Product
+                .Include("Category")
+                .Include("Manufacturer")
+                .Include("Suplier")
+                .AsQueryable();
 
+            // Выполнение запроса и привязка к DataGrid
+            var products = query.ToList();
+            dgProducts.ItemsSource = products;
+
+            // Обновление счетчика товаров
+            tbCount.Text = $"Найдено товаров: {products.Count}";
+        }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
 

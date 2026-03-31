@@ -22,7 +22,6 @@ namespace Chem.Windows
     /// </summary>
     public partial class LoginWindow : Window
     {
-        public DbSet<User> Users { get; set; }
         public LoginWindow()
         {
             InitializeComponent();
@@ -30,7 +29,10 @@ namespace Chem.Windows
 
         private void BtnGuest_Click(object sender, RoutedEventArgs e)
         {
-
+            App.CurrentUser = new User();
+            MainWindow main = new MainWindow("Гость");
+            this.Close();
+            main.Show();
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
@@ -39,7 +41,7 @@ namespace Chem.Windows
                 .FirstOrDefault(p => p.Login == tbLogin.Text && p.Password == pbPassword.Password);
             if (currentuser != null) {
                 App.CurrentUser = currentuser;
-                MainWindow main = new MainWindow(currentuser);
+                MainWindow main = new MainWindow(currentuser.Role.Name);
                 main.Show();
                 this.Close();
             }

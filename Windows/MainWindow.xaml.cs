@@ -1,5 +1,6 @@
 ﻿using Chem.Entities;
 using System;
+using Chem.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +22,13 @@ namespace Chem
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow(Entities.User Role)
+        public MainWindow(string Role)
         {
             InitializeComponent();
             User currentUser = App.CurrentUser;
             if (currentUser != null) {
                 tbFio.Text = currentUser.FirstName;
+                tbRole.Text = Role.ToString();
             }
             else
             {
@@ -36,34 +38,19 @@ namespace Chem
 
         }
 
-        private void ConfigureUIByRole()
-        {
-            //switch (CurrentUserRole)
-            //{
-            //    case "Admin":
-            //        AdminPanel.Visibility = Visibility.Visible;
-            //        ManagerPanel.Visibility = Visibility.Visible;
-            //        break;
-            //    case "Manager":
-            //        AdminPanel.Visibility = Visibility.Collapsed;
-            //        ManagerPanel.Visibility = Visibility.Visible;
-            //        break;
-            //    case "User":
-            //        AdminPanel.Visibility = Visibility.Collapsed;
-            //        ManagerPanel.Visibility = Visibility.Collapsed;
-            //        break;
-            //}
-
-        }
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
-
+            LoginWindow log = new LoginWindow();
+            this.Close();
+            log.Show();
         }
 
         private void BtnProducts_Click(object sender, RoutedEventArgs e)
         {
-
+            ProductWindow prod = new ProductWindow();
+            this.Close();
+            prod.Show();
         }
 
         private void BtnOrders_Click(object sender, RoutedEventArgs e)
