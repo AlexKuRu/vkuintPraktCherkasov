@@ -90,7 +90,6 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTextColumn Header="Артикул" Binding="{Binding Article}" Width="110"/>
                         <DataGridTextColumn Header="Наименование" Binding="{Binding ProductName}" Width="220"/>
                         <DataGridTextColumn Header="Категория" Binding="{Binding Category.CategoryName}" Width="140"/>
                         <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="220"/>

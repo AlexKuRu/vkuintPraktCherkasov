@@ -1,9 +1,13 @@
 # Visual Studio
 .vs/
-*.suo
+bin/
+obj/
+packages/
 *.user
-*.userosscache
+*.suo
 *.sln.docstates
+[Bb]in/
+[Oo]bj/
 
 # Build results
 bin/
