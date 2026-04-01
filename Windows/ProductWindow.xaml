@@ -47,7 +47,6 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <!-- панель поиска/фильтра/сортировки -->
                 <Grid x:Name="panelControls" Grid.Row="0" Margin="0,0,0,10" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -71,7 +70,6 @@
                           Height="28"/>
                 </Grid>
 
-                <!-- таблица товаров -->
                 <DataGrid x:Name="dgProducts"
                       Grid.Row="1"
                       AutoGenerateColumns="False"
@@ -80,7 +78,6 @@
                       SelectionMode="Single">
 
                     <DataGrid.Columns>
-                        <!-- фото -->
                         <DataGridTemplateColumn Header="Фото" Width="110">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -103,7 +100,6 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
 
-                                    <!-- контент -->
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock x:Name="tbOldPrice"
                                                Text="{Binding Price}"
@@ -118,13 +114,11 @@
                                     </StackPanel>
 
                                     <DataTemplate.Triggers>
-                                        <!-- скидки нет -->
                                         <DataTrigger Binding="{Binding HasDiscount}" Value="False">
                                             <Setter TargetName="tbOldPrice" Property="Visibility" Value="Collapsed"/>
                                             <Setter TargetName="tbNewPrice" Property="Text" Value="{Binding Price}"/>
                                         </DataTrigger>
 
-                                        <!-- скидка есть -->
                                         <DataTrigger Binding="{Binding HasDiscount}" Value="True">
                                             <Setter TargetName="tbOldPrice" Property="Visibility" Value="Visible"/>
                                             <Setter TargetName="tbNewPrice" Property="Text" Value="{Binding DiscountedPrice}"/>

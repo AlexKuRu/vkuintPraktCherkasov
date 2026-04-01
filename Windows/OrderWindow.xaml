@@ -43,7 +43,6 @@
                                 <StackPanel Orientation="Vertical">
 
 
-                                    <!-- Дата доставки -->
                                     <StackPanel Orientation="Vertical">
                                         <TextBlock FontFamily="Times New Roman" FontWeight="Bold"
                                                FontSize="20"
@@ -54,7 +53,6 @@
                                         <Run Text="{Binding DataDelivery}"></Run>
                                         </TextBlock>
 
-                                        <!-- Статус заказа -->
                                         <TextBlock FontFamily="Times New Roman"
                                                DockPanel.Dock="Left"
                                                HorizontalAlignment="Left"
@@ -64,7 +62,6 @@
                                         <Run Text="{Binding Status}"></Run>
                                         </TextBlock>
 
-                                        <!-- Адрес пункта выдачи -->
                                         <TextBlock FontFamily="Times New Roman"
                                                DockPanel.Dock="Left"
                                                HorizontalAlignment="Left"
@@ -74,7 +71,6 @@
                                         <Run Text="{Binding DeliveryAdress.NameAdress}"></Run>
                                         </TextBlock>
 
-                                        <!-- Дата заказа -->
                                         <TextBlock FontFamily="Times New Roman"
                                                DockPanel.Dock="Left"
                                                HorizontalAlignment="Left"
@@ -114,8 +110,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <!-- Добавление кнопки добавить -->
+        
         <Button Grid.Row="4"
             Visibility="{Binding Control}"
             HorizontalAlignment="Right"
