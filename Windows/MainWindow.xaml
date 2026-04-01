@@ -26,7 +26,7 @@
                     Width="40" Height="40" Margin="0,0,10,0"/>
 
                 <StackPanel Grid.Column="1">
-                    <TextBlock Text="CleanShop" FontSize="18" FontWeight="Bold"/>
+                    <TextBlock Text="CleanStore" FontSize="18" FontWeight="Bold"/>
                     <TextBlock x:Name="tbRole"/>
                 </StackPanel>
 

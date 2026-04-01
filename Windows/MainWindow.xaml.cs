@@ -41,6 +41,7 @@ namespace Chem
 
         private void BtnLogout_Click(object sender, RoutedEventArgs e)
         {
+            var role = tbRole.Text;
             LoginWindow log = new LoginWindow();
             this.Close();
             log.Show();
@@ -48,7 +49,8 @@ namespace Chem
 
         private void BtnProducts_Click(object sender, RoutedEventArgs e)
         {
-            ProductWindow prod = new ProductWindow();
+            var role = tbRole.Text;
+            ProductWindow prod = new ProductWindow(role);
             this.Close();
             prod.Show();
         }

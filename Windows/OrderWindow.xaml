@@ -19,7 +19,7 @@
             <Image Source="/Resources/icon.png" HorizontalAlignment="Left"
                    Width="40" Height="40" Margin="0,0,10,0"/>
             <StackPanel>
-                <TextBlock Text="CleanShop" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Text="CleanStore" FontSize="18" FontWeight="Bold"/>
                 <TextBlock Text="Список товаров"/>
             </StackPanel>
         </StackPanel>

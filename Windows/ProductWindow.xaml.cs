@@ -20,10 +20,19 @@ namespace Chem.Windows
     /// </summary>
     public partial class ProductWindow : Window
     {
-        public ProductWindow()
+        public ProductWindow(string Role)
         {
             InitializeComponent();
-            LoadProducts();        
+            LoadProducts();
+            tbRole.Text = Role;
+            if(tbRole.Text == "Админ")
+            {
+                panelAdminButtons.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                panelAdminButtons.Visibility = Visibility.Collapsed;
+            }
         }
         private void LoadProducts()
         {
@@ -40,7 +49,8 @@ namespace Chem.Windows
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            EditWindow edit = new EditWindow();
+            edit.Show();
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
