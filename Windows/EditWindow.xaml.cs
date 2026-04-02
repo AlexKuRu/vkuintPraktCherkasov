@@ -34,14 +34,9 @@ namespace Chem.Windows
             LoadComboBoxData();
             if (_isEditMode)
             {
-                LoadProductData();
-                Title = "Редактирование товара";
-                BtnDelete.Visibility = Visibility.Visible;
             }
             else
             {
-                Title = "Добавление товара";
-                BtnDelete.Visibility = Visibility.Collapsed;
             }
         }
 

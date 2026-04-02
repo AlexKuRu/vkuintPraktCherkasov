@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chem.Windows"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="340" Width="420"
+        Title="Авторизация" Height="340" Width="420"
+        Background="#d9f2f8"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     
     <Grid Margin="14">
@@ -47,8 +48,20 @@
                 <PasswordBox x:Name="pbPassword" Grid.Row="3" Height="28" VerticalAlignment="Top" Margin="0,3,0,0"/>
 
                 <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                    <Button Content="Гость" Width="100" Margin="0,0,8,0" Click="BtnGuest_Click"/>
-                    <Button Content="Войти" Width="100" Click="BtnLogin_Click"/>
+                    <Button Content="Гость" Width="100" Margin="0,0,8,0" Click="BtnGuest_Click" Background="#1b4965" Foreground="White">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="Войти" Width="100" Click="BtnLogin_Click" Background="#1b4965" Foreground="White">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
                 </StackPanel>
             </Grid>
         </Border>

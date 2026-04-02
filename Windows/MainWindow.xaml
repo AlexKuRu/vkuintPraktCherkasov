@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="620"
+        Title="Главная" Height="300" Width="620"
+        Background="#d9f2f8"
         WindowStartupLocation="CenterScreen">
     
     <Grid Margin="14">
@@ -32,16 +33,28 @@
 
                 <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock x:Name="tbFio" VerticalAlignment="Center" FontWeight="Bold" Margin="0,0,10,0"/>
-                    <Button Content="Выйти" Width="90" Click="BtnLogout_Click"/>
+                    <Button Content="Выйти" Width="90" Click="BtnLogout_Click" Background="#1b4965" Foreground="White">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
                 </StackPanel>
             </Grid>
         </Border>
 
-        <Border Grid.Row="1" Padding="14">
+        <Border Grid.Row="1" Padding="14" Background="White" HorizontalAlignment="Left" Margin="0,10,0,0" Width="592" CornerRadius="20">
             <StackPanel>
                 <TextBlock Text="Меню" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
 
-                <Button Content="Товары" Width="160" Click="BtnProducts_Click"/>
+                <Button Content="Товары" Width="160" Click="BtnProducts_Click" Background="#1b4965" Foreground="White">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
 
                 <Button x:Name="btnOrders" Content="Заказы" Width="160" Margin="0,10,0,0"
                      Click="BtnOrders_Click" Visibility="Collapsed"/>
