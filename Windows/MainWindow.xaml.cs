@@ -51,7 +51,6 @@ namespace Chem
         {
             var role = tbRole.Text;
             ProductWindow prod = new ProductWindow(role);
-            this.Close();
             prod.Show();
         }
 

@@ -49,7 +49,7 @@ namespace Chem.Windows
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            EditWindow edit = new EditWindow();
+            EditWindow edit = new EditWindow(null);
             edit.Show();
         }
 
@@ -60,7 +60,7 @@ namespace Chem.Windows
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
