@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Chem.Windows"
         mc:Ignorable="d"
         Background="#d9f2f8"
-        Title="Редактирование" Height="450" Width="800">
+        Title="Редактирование" Height="400" Width="700">
     <Grid Margin="20" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -29,25 +29,12 @@
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Наименование:" VerticalAlignment="Center"/>
         <TextBox x:Name="tbProductName" Grid.Row="0" Grid.Column="1" Margin="5" Height="30"/>
 
-        <!-- Категория -->
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Категория:" VerticalAlignment="Center"/>
-        <ComboBox x:Name="cbCategory" Grid.Row="1" Grid.Column="1" Margin="5" Height="30"
-                  DisplayMemberPath="CategoryName" SelectedValuePath="Id"/>
-
         <!-- Описание -->
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Описание:" VerticalAlignment="Top"/>
         <TextBox x:Name="tbDescription" Grid.Row="2" Grid.Column="1" Margin="5" Height="80" 
                  TextWrapping="Wrap" AcceptsReturn="True"/>
 
-        <!-- Производитель -->
-        <TextBlock Grid.Row="3" Grid.Column="0" Text="Производитель:" VerticalAlignment="Center"/>
-        <ComboBox x:Name="cbManufacturer" Grid.Row="3" Grid.Column="1" Margin="5" Height="30"
-                  DisplayMemberPath="Name" SelectedValuePath="Id"/>
 
-        <!-- Поставщик -->
-        <TextBlock Grid.Row="4" Grid.Column="0" Text="Поставщик:" VerticalAlignment="Center"/>
-        <ComboBox x:Name="cbSuplier" Grid.Row="4" Grid.Column="1" Margin="5" Height="30"
-                  DisplayMemberPath="Name" SelectedValuePath="Id"/>
 
         <!-- Остаток -->
         <TextBlock Grid.Row="5" Grid.Column="0" Text="Остаток:" VerticalAlignment="Center"/>
@@ -57,9 +44,8 @@
         <TextBlock Grid.Row="6" Grid.Column="0" Text="Скидка %:" VerticalAlignment="Center"/>
         <TextBox x:Name="tbDiscount" Grid.Row="6" Grid.Column="1" Margin="5" Height="30"/>
 
-        <!-- Изображение (опционально) -->
-        <TextBlock Grid.Row="7" Grid.Column="0" Text="Изображение:" VerticalAlignment="Top"/>
-        <StackPanel Grid.Row="7" Grid.Column="1" Margin="5">
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Изображение:" VerticalAlignment="Top" Height="50"/>
+        <StackPanel Grid.Row="7" Grid.Column="1" Margin="5" Height="50" Orientation="Horizontal">
             <Image x:Name="imgProduct" Width="150" Height="100" Stretch="UniformToFill"/>
             <Button Content="Выбрать изображение" Click="BtnSelectImage_Click" Margin="0,5,0,0"/>
         </StackPanel>

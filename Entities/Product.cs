@@ -11,6 +11,7 @@ namespace Chem.Entities
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     
     public partial class Product
     {
@@ -32,10 +33,10 @@ namespace Chem.Entities
         public byte[] Image { get; set; }
         public string Article { get; set; }
     
+        public virtual ICollection<Order> Order { get; set; }
+        public virtual Unit Unit { get; set; }
         public virtual Category Category { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }
-        public virtual ICollection<Order> Order { get; set; }
         public virtual Suplier Suplier { get; set; }
-        public virtual Unit Unit { get; set; }
     }
 }

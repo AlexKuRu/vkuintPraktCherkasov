@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Chem.Windows"
         mc:Ignorable="d"
         Background="#d9f2f8"
-        Title="Товары" Height="550" Width="1100" WindowStartupLocation="CenterScreen">
+        Title="Товары" Height="550" Width="900" WindowStartupLocation="CenterScreen">
     
     <Grid Margin="14">
         <Grid.RowDefinitions>
@@ -56,29 +56,6 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Grid x:Name="panelControls" Grid.Row="0" Margin="0,0,0,10" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="220"/>
-                        <ColumnDefinition Width="220"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBox x:Name="tbSearch"
-                         Height="28"
-                         Margin="0,0,10,0"
-                         VerticalContentAlignment="Center"
-                         ToolTip="Поиск"/>
-
-                    <ComboBox x:Name="cbSupplier"
-                          Grid.Column="1"
-                          Height="28"
-                          Margin="0,0,10,0"/>
-
-                    <ComboBox x:Name="cbSort"
-                          Grid.Column="2"
-                          Height="28"/>
-                </Grid>
-
                 <DataGrid x:Name="dgProducts"
                       Grid.Row="1"
                       AutoGenerateColumns="False"
@@ -91,16 +68,13 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image Width="100" Height="60" Stretch="UniformToFill"
-                                       Source="{Binding Image}"/>
+                                       Source="/Resources/png-transparent-chemistry-lab-experiment-science-flask-glass-bottle-equipment-liquid-research.png"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
                         <DataGridTextColumn Header="Наименование" Binding="{Binding ProductName}" Width="220"/>
-                        <DataGridTextColumn Header="Категория" Binding="{Binding Category.CategoryName}" Width="140"/>
                         <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="220"/>
-                        <DataGridTextColumn Header="Производитель" Binding="{Binding Manufacturer.Name}" Width="140"/>
-                        <DataGridTextColumn Header="Поставщик" Binding="{Binding Suplier.Name}" Width="140"/>
                         <DataGridTextColumn Header="Остаток" Binding="{Binding Quantity}" Width="80"/>
                         <DataGridTextColumn Header="Скидка %" Binding="{Binding Discount}" Width="80"/>
 

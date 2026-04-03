@@ -1,6 +1,8 @@
 ﻿using Chem.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +25,6 @@ namespace Chem.Windows
         public ProductWindow(string Role)
         {
             InitializeComponent();
-            LoadProducts();
             tbRole.Text = Role;
             if(tbRole.Text == "Админ")
             {
@@ -33,6 +34,7 @@ namespace Chem.Windows
             {
                 panelAdminButtons.Visibility = Visibility.Collapsed;
             }
+            LoadProducts();
         }
         private void LoadProducts()
         {
@@ -45,17 +47,50 @@ namespace Chem.Windows
             var products = query.ToList();
             dgProducts.ItemsSource = products;
 
-            tbCount.Text = $"Найдено товаров: {products.Count}";
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            EditWindow edit = new EditWindow(null);
-            edit.Show();
+            if (dgProducts.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите товар для редактирования.", "Внимание",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            dynamic selected = dgProducts.SelectedItem;
+            int productId = selected.id_product; 
+
+            var product = App.Context.Product.Find(productId);
+            if (product != null)
+            {
+                EditWindow edit = new EditWindow(product);
+                if (edit.ShowDialog() == true)
+                    LoadProducts();
+            }
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (dgProducts.SelectedItem == null)
+            {
+                MessageBox.Show("Выберите товар для удаления.", "Внимание",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
+            dynamic selected = dgProducts.SelectedItem;
+            int productId = selected.id_product;
+
+            var product = App.Context.Product.Find(productId);
+            if (product == null) return;
+
+            if (MessageBox.Show($"Удалить товар \"{product.ProductName}\"?", "Подтверждение",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                App.Context.Product.Remove(product);
+                App.Context.SaveChanges();
+                LoadProducts();
+            }
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -65,7 +100,13 @@ namespace Chem.Windows
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            EditWindow editWindow = new EditWindow(null);
 
+            if (editWindow.ShowDialog() == true)
+            {
+                LoadProducts(); 
+            }
         }
+
     }
 }
